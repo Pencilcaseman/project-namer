@@ -1,4 +1,4 @@
-![Logo](./logo_4096.png)
+<img src="./client/logo_4096.png" alt="Logo" width="500"/>
 
 # Project-Namer
 
