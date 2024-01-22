@@ -1,4 +1,4 @@
-<img src="./client/logo_4096.png" alt="Logo" width="500"/>
+<img src="./public/logo_4096.png" alt="Logo" width="500"/>
 
 # Project-Namer
 
