@@ -1,4 +1,6 @@
-<img src="./public/logo_4096.png" alt="Logo" width="500"/>
+<p align="center">
+<img src="./public/logo_4096.png" alt="Logo" width="350"/>
+</p>
 
 # Project-Namer
 
