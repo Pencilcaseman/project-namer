@@ -156,9 +156,9 @@ You should generate the following data:
 - projectDescription: A longer description of the project (a paragraph or two). It
                       should explain what the project is and why it is important.
                       It may be used as part of the README for the project
-- logoPrompt: A basic and concise description of the project's logo, which should capture all
-              important aspects specified by the user. The prompt will be developed further
-              in the image generation stage, so it should be as simple as possible.
+- logoPrompt: A prompt for DALL-E 3 to generate a logo for the project. Unless
+              specified otherwise, the logo should be simple and in the style of 
+              vector graphics. The logo should also be on a solid background.
 - projectTags: Tags that can be used to search for the project. For example,
                ["math", "linear-algebra", "matrix"]. Generate 3-5 tags.
 
