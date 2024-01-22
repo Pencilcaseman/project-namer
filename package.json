@@ -1,0 +1,32 @@
+{
+    "name": "project-namer",
+    "version": "1.0.0",
+    "description": "Generate a name, logo, summary and more for your project",
+    "main": "server/server.js",
+    "scripts": {
+        "start": "nodemon server/server.js --ignore ./data/",
+        "test": "jest",
+        "pretest": "eslint public/client.js server/server.js server/app.js"
+    },
+    "author": "toby@tobydavis.dev",
+    "license": "GNU GPLv3",
+    "dependencies": {
+        "body-parser": "^1.20.2",
+        "cors": "^2.8.5",
+        "dotenv": "^16.3.1",
+        "download": "^8.0.0",
+        "express": "^4.18.2",
+        "fs": "^0.0.1-security",
+        "object-hash": "^3.0.0",
+        "openai": "^4.24.0"
+    },
+    "devDependencies": {
+        "eslint": "^8.56.0",
+        "eslint-config-standard": "^17.1.0",
+        "eslint-plugin-import": "^2.29.0",
+        "eslint-plugin-n": "^16.3.1",
+        "eslint-plugin-promise": "^6.1.1",
+        "nodemon": "^3.0.1",
+        "supertest": "^6.3.3"
+    }
+}

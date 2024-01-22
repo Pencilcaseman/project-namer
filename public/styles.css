@@ -1,0 +1,27 @@
+.navbar-rounded-base {
+    border-bottom-left-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;
+}
+
+.theme-selector-box {
+    /*display: flex;*/
+    /*flex-wrap: wrap;*/
+    /*flex-direction: column;*/
+    width: 8rem;
+    height: 2rem;
+}
+
+.image-container {
+    width: auto; /* Width can be adjusted as needed */
+    aspect-ratio: 1 / 1; /* Keeps the container square */
+}
+
+@media (max-width: 450px) {
+    .flex-wrap-sm {
+        flex-wrap: wrap;
+    }
+}
+
+.box {
+    border-radius: var(--rounded-box);
+}

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Project Namer</title>
+    <link rel="icon" type="image/png" href="/logo_96.png" />
+</head>
+
+<body>
+    <div class="navbar bg-base-100 navbar-rounded-base">
+        <div class="navbar-start">
+            <img src="/logo_96.png" class="w-10 h-10" />
+        </div>
+        <div class="navbar-center">
+            <h1 class="text-3xl font-bold">Project Namer</h1>
+        </div>
+        <div class="navbar-end"></div>
+    </div>
+
+    <div class="flex flex-wrap justify-center items-start" style="padding: 50px; gap: 50px">
+        <div class="flex flex-col flex-grow" style="min-width: 200px; max-width: 450px;">
+            <h1 class="text-2xl" style="padding-bottom: 10px">Project Description</h1>
+            <label class="form-control">
+                <textarea id="project_description_input" class="textarea textarea-secondary textarea-bordered h-24"
+                    placeholder="Describe your project here, and we'll help you name it."
+                    style="width: 100%; height: 200px"></textarea>
+            </label>
+        </div>
+
+        <div class="flex flex-wrap justify-center items-start" style="gap: 50px;">
+            <div style="padding-bottom: 15px">
+                <h1 class="text-2xl" style="padding-bottom: 10px">Logo Subject</h1>
+                <label id="selector_toggles" class="flex justify-center flex-col items-end" style="gap: 10px"></label>
+            </div>
+
+            <div>
+                <h1 class="text-2xl" style="padding-bottom: 10px">Logo Color Style</h1>
+                <label id="color_style_toggles" class="flex justify-center flex-col items-end"
+                    style="gap: 10px"></label>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex flex-wrap justify-center items-start">
+        <div class="flex flex-col">
+            <h2 class="text-2xl align-middle center text-center" style="padding-bottom: 10px">Logo Theme</h2>
+            <div id="theme_selector" class="flex flex-wrap justify-center items-start"
+                style="padding: 15px; gap: 15px; max-width: 800px"></div>
+        </div>
+    </div>
+
+    <div class="flex flex-cols justify-center flex-align-center" style="padding-top: 50px; gap: 15px">
+        <div class="dropdown">
+            <div tabindex="0" role="button" class="btn btn-secondary btn-wide">
+                Past Projects
+                <svg width="16" height="10">
+                    <polygon points="0,0 16,0 8,10" />
+                </svg>
+            </div>
+            <ul id="existing_project_dropdown" tabindex="0"
+                class="dropdown-content z-[1] menu p-2 shadow bg-base-300 rounded-box w-64">
+            </ul>
+        </div>
+        <button id="generate_content_button" class="btn btn-primary btn-wide">Generate!</button>
+    </div>
+
+    <div class="flex flex-col w-full border-opacity-50">
+        <div class="divider"></div>
+    </div>
+
+    <div class="flex flex-row justify-center flex-align-center" style="padding: 15px">
+        <div id="content_destination" class="flex flex-col justify-center flex-align-center items-start"
+            style="gap: 10px; max-width: 32rem">
+        </div>
+    </div>
+
+    <div id="save_content_button" class="flex flex-row justify-center flex-align-center" style="padding: 15px">
+    </div>
+
+    <div class="flex flex-col w-full border-opacity-50">
+        <div class="divider"></div>
+    </div>
+
+    <div class="flex justify-center items-center">
+        <div class="text-center" style="padding: 65px">
+            Copyright &copy; Toby Davis &dash; 2024
+        </div>
+    </div>
+
+    <script src="client.js" type="module"></script>
+    <link href="styles.css" rel="stylesheet" type="text/css">
+
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.4.23/dist/full.min.css" rel="stylesheet" type="text/css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</body>
+
+</html>
