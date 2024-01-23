@@ -342,8 +342,6 @@ function getContent () {
 
     const logoSubject = [];
     for (const subject of document.getElementById('selector_toggles').children) {
-        console.log(subject.children);
-
         if (subject.children[1].checked) {
             logoSubject.push(subject.children[0].outerText);
         }
