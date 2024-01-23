@@ -22,8 +22,8 @@ const logoColorStyles = [
 
 // A list of themes and their descriptions (for the AI image generation)
 const themes = {
-    light: 'A light theme with generally brighter colours and a white background',
     dark: 'A dark theme with generally darker colours and a black background',
+    light: 'A light theme with generally brighter colours and a white background',
     bumblebee: 'A light theme focusing yellows, oranges and blacks',
     synthwave: 'A dark theme focusing on blues and pinks, with white accents',
     retro: 'A light theme with a pastel palette and somewhat hard edges',
@@ -59,10 +59,21 @@ const hashString = (str, seed = 0) => {
 };
 
 // Given a URL and a path, download the file at the URL and save it to the path
+// function downloadFile (url, path) {
+//     (async () => {
+//         fs.writeFileSync(path, await download(url));
+//     })();
+// }
+
 function downloadFile (url, path) {
-    (async () => {
-        fs.writeFileSync(path, await download(url));
-    })();
+    return new Promise((resolve, reject) => {
+        download(url).then(data => {
+            fs.writeFileSync(path, data);
+            resolve({
+                ok: true
+            });
+        }).catch(err => reject(err));
+    });
 }
 
 module.exports = {

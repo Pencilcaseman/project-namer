@@ -25,3 +25,12 @@
 .box {
     border-radius: var(--rounded-box);
 }
+
+#save_content_button {
+  opacity: 1;
+  transition: opacity 1s; 
+}
+
+#save_content_button.fade {
+  opacity: 0;
+}

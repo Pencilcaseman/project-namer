@@ -227,25 +227,36 @@ app.post('/saveResult', async (req, res) => {
             const imagePath = `./data/images/${imageName}`;
 
             // Download the image
-            downloadFile(payload.logoUrl, imagePath);
+            // downloadFile(payload.logoUrl, imagePath);
 
-            // Save the data to the 'database'
-            const data = {
-                ...payload,
-                hash: hashVal
-            };
+            // Download the file and send the result to the client
+            downloadFile(payload.logoUrl, imagePath)
+                .then(response => {
+                    if (!response.ok) {
+                        res.status(400).send('Error downloading image');
+                    }
+                }).then(() => {
+                    // Save the data to the 'database'
+                    const data = {
+                        ...payload,
+                        hash: hashVal
+                    };
 
-            // Check if the hash is unique
-            const unique = database[hashVal] === undefined;
+                    // Check if the hash is unique
+                    const unique = database[hashVal] === undefined;
 
-            // Write to the database stored in memory and update the disk copy
-            database[hashVal] = data;
-            fs.writeFileSync('./data/database.json', JSON.stringify(database));
+                    // Write to the database stored in memory and update the disk copy
+                    database[hashVal] = data;
+                    fs.writeFileSync('./data/database.json', JSON.stringify(database));
 
-            res.send({
-                hash: hashVal,
-                unique
-            });
+                    res.send({
+                        hash: hashVal,
+                        unique
+                    });
+                }).catch(err => {
+                    console.log('Error: ', err);
+                    res.status(400).send('Error downloading image');
+                });
         }
     } catch (err) {
         console.log('Error: ', err);

@@ -129,13 +129,23 @@ function addLogoTheme () {
             // Set a random default theme
             const checked = theme === defaultTheme ? 'checked' : '';
 
+            // const html = `
+            //     <div class="form-control theme-selector-box">
+            //         <label class="label cursor-pointer">
+            //             <span class="label-text">${titleTheme}</span>
+            //             <input type="radio" name="themeSelector" class="radio theme-controller" value="${theme}" ${checked}/>
+            //         </label>
+            //     </div>
+            // `;
+
             const html = `
-                <div class="form-control theme-selector-box">
+                <li>
                     <label class="label cursor-pointer">
                         <span class="label-text">${titleTheme}</span>
-                        <input type="radio" name="themeSelector" class="radio theme-controller" value="${theme}" ${checked}/>
+                        <input type="radio" name="themeSelector" class="radio theme-controller" value="${theme}"
+                            ${checked} onclick='document.getElementById("theme_selector_dropdown_button").innerText = "Logo Color Scheme: ${titleTheme}";'/>
                     </label>
-                </div>
+                </li>
             `;
 
             themeSelector.innerHTML += html;
@@ -351,6 +361,10 @@ function getContent () {
 }
 
 function saveContent () {
+    // Set the 'Save' button to a spinner
+    const saveContentButton = document.getElementById('save_content_button');
+    saveContentButton.innerHTML = '<span class="loading loading-spinner text-success loading-lg"></span>';
+
     fetch(apiHost() + 'saveResult', {
         method: 'POST',
         headers: {
@@ -359,18 +373,34 @@ function saveContent () {
         body: JSON.stringify(currentOutput)
     }).then((response) => {
         if (!response.ok) {
+            // Remove the spinner
+            saveContentButton.innerHTML = 'Save!';
             console.log(response);
             throw new Error(`HTTP error: ${response.status}`);
         }
 
         return response.json();
     }).then((obj) => {
-    // Add the newly created project to the list of existing projects so it
-    // can be retrieved again in the current session. Reloading the page
-    // refreshes the list, which will pull the project from the server so
-    // there is no need to do anything more here.
+        // Add the newly created project to the list of existing projects so it
+        // can be retrieved again in the current session. Reloading the page
+        // refreshes the list, which will pull the project from the server so
+        // there is no need to do anything more here.
 
         if (obj.unique) {
+            // Change to a 'saved' icon
+            saveContentButton.innerHTML = `
+                <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+            `;
+
+            // After a delay, fade out the icon, delete it, then toggle the fade again
+            setTimeout(() => {
+                saveContentButton.classList.toggle('fade');
+                setTimeout(() => {
+                    saveContentButton.innerHTML = '';
+                    saveContentButton.classList.toggle('fade');
+                }, 1000);
+            }, 1000);
+
             addExistingProject(currentOutput.projectName, obj.hash);
         } else {
             console.log('Project already exists');

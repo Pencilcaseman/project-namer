@@ -24,30 +24,72 @@
             <h1 class="text-2xl" style="padding-bottom: 10px">Project Description</h1>
             <label class="form-control">
                 <textarea id="project_description_input" class="textarea textarea-secondary textarea-bordered h-24"
-                    placeholder="Describe your project here, and we'll help you name it."
-                    style="width: 100%; height: 200px"></textarea>
+                    placeholder="Describe your project here, and we'll help you name it and generate a logo for it!"
+                    style="width: 100%; height: 290px"></textarea>
             </label>
         </div>
 
-        <div class="flex flex-wrap justify-center items-start" style="gap: 50px;">
-            <div style="padding-bottom: 15px">
-                <h1 class="text-2xl" style="padding-bottom: 10px">Logo Subject</h1>
-                <label id="selector_toggles" class="flex justify-center flex-col items-end" style="gap: 10px"></label>
+        <div class="flex flex-col flex-wrap justify-center items-center" style="gap: 50px;">
+            <div class="flex flex-wrap justify-center items-start" style="gap: 50px;">
+                <div style="padding-bottom: 15px">
+                    <h1 class="text-2xl" style="padding-bottom: 10px">Logo Subject</h1>
+                    <label id="selector_toggles" class="flex justify-center flex-col items-end"
+                        style="gap: 10px"></label>
+                </div>
+
+                <div>
+                    <h1 class="text-2xl" style="padding-bottom: 10px">Logo Color Style</h1>
+                    <label id="color_style_toggles" class="flex justify-center flex-col items-end"
+                        style="gap: 10px"></label>
+                </div>
             </div>
 
-            <div>
-                <h1 class="text-2xl" style="padding-bottom: 10px">Logo Color Style</h1>
-                <label id="color_style_toggles" class="flex justify-center flex-col items-end"
-                    style="gap: 10px"></label>
+            <div class="dropdown">
+                <div id="theme_selector_dropdown_button" tabindex="0" role="button" class="btn btn-secondary btn-wide">
+                    Logo Color Scheme: Dark</div>
+                <ul id="theme_selector" tabindex="0"
+                    class="dropdown-content z-[1] menu p-2 shadow bg-base-300 rounded-box w-64">
+                </ul>
             </div>
         </div>
     </div>
 
     <div class="flex flex-wrap justify-center items-start">
         <div class="flex flex-col">
-            <h2 class="text-2xl align-middle center text-center" style="padding-bottom: 10px">Logo Theme</h2>
-            <div id="theme_selector" class="flex flex-wrap justify-center items-start"
-                style="padding: 15px; gap: 15px; max-width: 800px"></div>
+            <!-- <div id="theme_selector" class="flex flex-wrap justify-center items-start" -->
+            <!--     style="padding: 15px; gap: 15px; max-width: 800px"></div> -->
+
+            <!-- <div class="dropdown"> -->
+            <!--     <div id="theme_selector_dropdown_button" tabindex="0" role="button" class="btn btn-secondary btn-wide"> -->
+            <!--         Logo Color Scheme: Dark</div> -->
+            <!--     <ul id="theme_selector" tabindex="0" -->
+            <!--         class="dropdown-content z-[1] menu p-2 shadow bg-base-300 rounded-box w-64"> -->
+            <!--     </ul> -->
+            <!-- </div> -->
+
+            <!-- <div class="dropdown dropdown-lg"> -->
+            <!--     <div tabindex="0" role="button" class="btn m-1">Click</div> -->
+            <!--     <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"> -->
+            <!--         <li><a>Item 1</a></li> -->
+            <!--         <li><a>Item 2</a></li> -->
+            <!---->
+            <!--         <li> -->
+            <!--             <div>Dark <input type="radio" name="themeSelector" class="radio theme-controller" -->
+            <!--                     value="${theme}" ${checked} /> -->
+            <!--             </div> -->
+            <!---->
+            <!--         </li> -->
+            <!---->
+            <!--         <li> -->
+            <!--             <label class="label cursor-pointer"> -->
+            <!--                 <span class="label-text">Dark Theme</span> -->
+            <!--                 <input type="radio" name="themeSelector" class="radio theme-controller" value="dark" -->
+            <!--                     ${checked} /> -->
+            <!--             </label> -->
+            <!--         </li> -->
+            <!---->
+            <!--     </ul> -->
+            <!-- </div> -->
         </div>
     </div>
 
@@ -77,10 +119,6 @@
     </div>
 
     <div id="save_content_button" class="flex flex-row justify-center flex-align-center" style="padding: 15px">
-    </div>
-
-    <div class="flex flex-col w-full border-opacity-50">
-        <div class="divider"></div>
     </div>
 
     <div class="flex justify-center items-center">
